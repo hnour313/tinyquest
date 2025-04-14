@@ -8,10 +8,17 @@ TinyQuest ist eine Webanwendung, die Nutzer:innen täglich oder wöchentlich kle
 
 ## 👤 Projektleitung
 
-- **Projektleiter:** Hadi Noureddine  
+- **Projektleiter:** t.b.a.
 - **Erstellt am:** 14.04.2025  
 - **Status:** In Bearbeitung  
-- **Letzte Änderung:** 14.04.2025  
+- **Letzte Änderung:** 14.04.2025
+
+## 👥 Rollen
+
+- **Hadi:** Entwickler
+- **Joshi:** Entwickler  
+- **Homsi:** Datenbanken  
+- **Sinem:** Organisation 
 
 ## 🧩 Ziel des Projekts
 
