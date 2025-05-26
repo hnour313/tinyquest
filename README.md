@@ -8,17 +8,18 @@ TinyQuest ist eine Webanwendung, die Nutzer:innen täglich oder wöchentlich kle
 
 ## 👤 Projektleitung
 
-- **Projektleiter:** t.b.a.
+- **Projektleiter-Team:** Sinem Tabak, Hadi Noureddine
 - **Erstellt am:** 14.04.2025  
-- **Status:** In Bearbeitung  
-- **Letzte Änderung:** 14.04.2025
+- **Status:** Erledigt  
+- **Letzte Änderung:** 26.05.2025
+- **Domain**: tinyquest.free.nf
 
 ## 👥 Rollen
 
-- **Hadi:** Entwickler
+- **Hadi:** Leiter, Entwickler
+- **Sinem:** Leiterin, Organisation und Design
 - **Joshi:** Entwickler  
-- **Homsi:** Datenbanken  
-- **Sinem:** Organisation 
+- **Homsi:** Entwickler 
 
 ## 🧩 Ziel des Projekts
 
@@ -38,29 +39,18 @@ Jugendliche und junge Erwachsene im Alter von 16–30 Jahren, die digitale Tools
 ## 🎨 Nichtfunktionale Anforderungen
 
 - Responsives, ansprechendes UI/UX  
-- DSGVO-konforme Datenspeicherung (inkl. Cookie-Hinweis)  
+- DSGVO-konforme Datenspeicherung
 - Webanwendung auf Basis von **PHP** und **SQL**  
 
 ## 📦 Lieferumfang
 
 - Webanwendung (tinyquest)  
-- Installationsanleitung  
-- Datenbankstruktur mit Beispieldaten  
 - Projekt-Dokumentation (Lastenheft, Pflichtenheft etc.)
 
 ## 📅 Wichtige Termine
 
 - **Geplantes Lieferdatum:** 02. Juni 2025  
-- **Abgabe:** GitHub Repository + PDF-Dokumentation  
-- **Kontaktperson:** Sebastian Bichler  
-
-## ✅ Abnahmebedingungen
-
-Das Projekt gilt als abgeschlossen, wenn:
-
-- Alle funktionalen Anforderungen prototypisch umgesetzt wurden  
-- Die Anwendung stabil lauffähig ist  
-- Eine vollständige Dokumentation vorliegt  
-- Die App demonstriert und präsentiert wurde  
-
+- **Abgabe:** GitHub Repository
+- **Kontaktperson:** Sebastian Bichler
+  
 ---
