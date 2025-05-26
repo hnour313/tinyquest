@@ -12,3 +12,4 @@ $password = password_hash($data['password'], PASSWORD_BCRYPT);
 $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
 $stmt->execute(['username' => $username, 'password' => $password]);
 echo json_encode(['success' => true]);
+?>

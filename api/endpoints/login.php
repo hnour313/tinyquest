@@ -1,7 +1,7 @@
 <?php
 require_once '../../backend/config/db.php';
-header('Content-Type: application/json');
 session_start();
+
 $data = json_decode(file_get_contents("php://input"), true);
 if (!isset($data['username'], $data['password'])) {
     http_response_code(400);
@@ -18,3 +18,4 @@ if ($user && password_verify($data['password'], $user['password'])) {
     http_response_code(401);
     echo json_encode(['error' => 'Login fehlgeschlagen']);
 }
+?>
