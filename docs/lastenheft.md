@@ -25,6 +25,10 @@ MVP: Minimum Viable Product
 
 ## Verteiler und Freigabe
 
+Dieses Dokument wird dem Projektteam, der betreuenden Lehrperson sowie ggf. weiteren beteiligten Personen zur Verfügung gestellt.  
+Es dient als abgestimmte Grundlage zur Entwicklung der Anwendung.  
+Eine offizielle Freigabe erfolgt durch die Projektleitung bzw. die betreuende Lehrperson.
+
 # Konzept
 
 ## Ziel(e) des Anbieters
@@ -69,11 +73,15 @@ Ansprechendes und benutzerfreundliches Design
 
 5.2 Gesetzliche Anforderungen
 
-DSGVO-konforme Speicherung personenbezogener Daten, Cookies, Datenschutzerklärung
+Personenbezogene Daten (z. B. Name, E-Mail, Passwort) werden gemäß DSGVO verarbeitet.  
+Passwörter werden nicht im Klartext gespeichert, sondern mit einem sicheren Hash-Verfahren verschlüsselt (bcrypt).  
+Die Anwendung wird eine Datenschutzerklärung und einen Cookie-Hinweis enthalten.
 
 5.3 Technische Anforderungen
 
-Web-App auf Basis von PHP und SQL
+Die Anwendung wird als klassische Client-Server-Webanwendung auf Basis von PHP (Backend) und MySQL (Datenbank) entwickelt.  
+Für das Frontend wird HTML, JavaScript und das CSS-Framework Bootstrap 5 verwendet.  
+Die Anwendung wird für die Projektlaufzeit auf einem kostenlosen Webhoster (InfinityFree) bereitgestellt.
 
 # Lieferumfang
 
@@ -81,15 +89,20 @@ Web-App auf Basis von PHP und SQL
 
 Web-Anwendung tinyquest
 
-Installationsanleitung
-
-Datenbankstruktur
-
 Dokumentation
 
 6.2 Kosten
 
-Keine externen Kosten, Projekt im Rahmen einer studentischen Projektarbeit
+Für die Entwicklung und Bereitstellung der Anwendung im Rahmen dieses studentischen Projekts entstehen aktuell keine externen Kosten. 
+Es wird ein kostenloser Webhoster (InfinityFree) genutzt, und die Entwicklungsarbeit erfolgt ausschließlich durch das Projektteam selbst.
+
+Langfristig betrachtet könnten im Falle einer Weiterentwicklung oder eines professionellen Betriebs jedoch folgende Kostenpunkte entstehen:
+
+- **Webhosting und Domain:** Für den zuverlässigen und DSGVO-konformen Betrieb einer produktiven Version wäre ggf. ein kostenpflichtiger Webhoster mit eigener Domain notwendig.
+- **Sicherheits- und Datenschutzmaßnahmen:** Bei wachsender Nutzerzahl könnten zusätzliche Aufwände für SSL-Zertifikate, Datensicherung und Datenschutzberatung entstehen.
+- **Design und Usability:** Optional könnten Mittel für professionelles UI/UX-Design oder externe Tools (z. B. für Analytics) notwendig werden.
+
+Diese Punkte sind derzeit nicht budgetiert, sollten aber im Falle einer Weiterverwendung oder Öffnung der App für die Öffentlichkeit berücksichtigt werden.
 
 6.3 Liefertermin
 
@@ -97,7 +110,7 @@ Keine externen Kosten, Projekt im Rahmen einer studentischen Projektarbeit
 
 6.4 Ansprechstelle
 
-Sebastian Bichler, Abgabe via Github Repo + Dokumentationen
+Sebastian Bichler, Abgabe via Github Repository
 
 7 Abnahmevoraussetzungen
 
