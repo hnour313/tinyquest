@@ -1,15 +1,27 @@
 <?php
 require_once '../../backend/config/db.php';
-header('Content-Type: application/json');
-$data = json_decode(file_get_contents("php://input"), true);
-if (!isset($data['username'], $data['password'])) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Benutzername und Passwort erforderlich']);
+session_start();
+
+if (!isset($_POST['username'], $_POST['password'])) {
+    header("Location: /frontend/register.html?error=1");
     exit;
 }
-$username = $data['username'];
-$password = password_hash($data['password'], PASSWORD_BCRYPT);
-$stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-$stmt->execute(['username' => $username, 'password' => $password]);
-echo json_encode(['success' => true]);
+$username = $_POST['username'];
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+// Benutzername prüfen
+$stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
+$stmt->execute([$username]);
+if ($stmt->fetch()) {
+    header("Location: /frontend/register.html?exists=1");
+    exit;
+}
+
+$stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+$stmt->execute([$username, $password]);
+
+// Direkt einloggen nach Registrierung
+$_SESSION['user_id'] = $pdo->lastInsertId();
+header("Location: /frontend/dashboard.php");
+exit;
 ?>
