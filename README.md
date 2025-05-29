@@ -13,6 +13,7 @@ TinyQuest ist eine Webanwendung, die Nutzer:innen täglich oder wöchentlich kle
 - **Status:** Erledigt  
 - **Letzte Änderung:** 26.05.2025
 - **Domain**: tinyquest.free.nf
+- **Demo-Seite**: https://tinyquest.free.nf/frontend/dashboard.html
 
 ## 👥 Rollen
 
