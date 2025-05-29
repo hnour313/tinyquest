@@ -1,73 +1,38 @@
-<?php
-// Fehlerausgabe einschalten
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-// Schritt 1: DB einbinden
-require_once 'backend/config/db.php';
-echo "<!-- DB erfolgreich eingebunden -->";
-
-// Schritt 2: Session starten
-session_start();
-echo "<!-- Session gestartet -->";
-
-// Schritt 3: User-ID prüfen
-$user_id = $_SESSION['user_id'] ?? null;
-if (!$user_id) {
-    echo "<h3 style='color:red'>Nicht eingeloggt. Bitte <a href='/frontend/login.html'>einloggen</a>!</h3>";
-    exit;
-}
-echo "<!-- User-ID: $user_id -->";
-
-// Schritt 4: Userdaten laden
-$stmt = $pdo->prepare("SELECT username, points FROM users WHERE id = ?");
-$stmt->execute([$user_id]);
-$user = $stmt->fetch();
-
-if (!$user) {
-    echo "<h3 style='color:red'>Kein Benutzer gefunden!</h3>";
-    exit;
-}
-echo "<!-- User gefunden: {$user['username']} -->";
-
-// Schritt 5: Quests laden
-$stmt = $pdo->prepare(
-    "SELECT q.* FROM quests q WHERE q.id NOT IN (SELECT quest_id FROM completed_quests WHERE user_id = ?)"
-);
-$stmt->execute([$user_id]);
-$quests = $stmt->fetchAll();
-echo "<!-- Quests geladen: ".count($quests)." Stück -->";
-?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>TinyQuest Dashboard</title>
-  <link href="frontend/assets/css/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>TinyQuest – Starte dein Abenteuer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/frontend/assets/css/style.css">
 </head>
 <body>
-  <div class="container mt-5">
-    <h1>Willkommen, <?= htmlspecialchars($user['username']) ?>!</h1>
-    <h2 class="mb-4">Punkte: <?= (int)$user['points'] ?></h2>
-    <a href="api/endpoints/logout.php" class="btn btn-outline-light float-end mb-3">Logout</a>
-    <h4>Offene Quests:</h4>
-    <table class="table table-dark table-striped">
-      <tr><th>Titel</th><th>Beschreibung</th><th>Punkte</th><th>Aktion</th></tr>
-      <?php foreach ($quests as $q): ?>
-        <tr>
-          <td><?= htmlspecialchars($q['title']) ?></td>
-          <td><?= htmlspecialchars($q['description']) ?></td>
-          <td><?= (int)$q['points'] ?></td>
-          <td>
-            <form method="post" action="api/endpoints/completeQuest.php" style="display:inline;">
-              <input type="hidden" name="quest_id" value="<?= $q['id'] ?>">
-              <button type="submit" class="btn btn-success btn-sm">✔ Erledigt</button>
-            </form>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </table>
+  <div class="wrapper">
+    <div class="hero">
+      <div class="logo-circle">
+        <i class="fa-solid fa-magic-wand-sparkles"></i>
+      </div>
+      <h1>TinyQuest</h1>
+      <h2>Gamify your Day. Level up your Life!</h2>
+      <div class="desc">
+        TinyQuest bringt Magie und Motivation in deinen Alltag! <br>
+        Schließe jeden Tag kleine Quests ab, sammle Punkte und verdiene Badges.<br>
+        Werde Teil einer Community, die aus Alltäglichem ein Spiel macht.
+      </div>
+      <a href="/frontend/login.html" class="cta-btn"><i class="fa-solid fa-right-to-bracket"></i> Einloggen</a>
+      <a href="/frontend/registration.php" class="cta-btn"><i class="fa-solid fa-user-plus"></i> Registrieren</a>
+      <ul class="features-list">
+        <li><i class="fa-solid fa-check"></i> Tägliche und wöchentliche Quests</li>
+        <li><i class="fa-solid fa-check"></i> Motivation durch Streaks und Badges</li>
+        <li><i class="fa-solid fa-check"></i> Spielerisches, magisches Design</li>
+        <li><i class="fa-solid fa-check"></i> Fortschritt immer im Blick</li>
+      </ul>
+    </div>
   </div>
+  <a href="/frontend/admin_login.php" style="position:fixed;right:12px;bottom:12px;opacity:0.25;font-size:0.98em;z-index:1000;transition:.3s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=0.25">
+    <i class="fa-solid fa-user-shield"></i> Admin
+  </a>
 </body>
 </html>
